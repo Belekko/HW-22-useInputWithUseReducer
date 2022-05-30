@@ -1,18 +1,19 @@
 import { useReducer } from "react";
 
 const dispatchFunc = (prevState, action) => {
+  console.log(prevState);
   if (action.type === "CHANGE") {
+    console.log(action.enteredValue);
     return {
       ...prevState,
       enteredValue: action.enteredValue,
-      isTouched: action.enteredValue.trim() === "",
+      isTouched: true,
     };
   }
   if (action.type === "BLUR") {
     return {
       ...prevState,
-      enteredValue: action.enteredValue,
-      isTouched: action.enteredValue.trim() === "",
+      isTouched: action.isTouched,
     };
   }
   return prevState;
@@ -34,11 +35,12 @@ export const useInput = (validateState) => {
   };
 
   const inputBlurHandler = (event) => {
-    dispatch({ type: "BLUR", enteredValue: event.target.value });
+    dispatch({ type: "BLUR", isTouched: true });
   };
+
   return {
     value: stateValues.enteredValue,
-    isValid: stateValues.valueIsValid,
+    isValid: valueIsValid,
     hasError,
     valueChangeHandler,
     inputBlurHandler,

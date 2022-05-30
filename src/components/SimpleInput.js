@@ -18,12 +18,20 @@ const SimpleInput = (props) => {
   } = useInput((value) => value.includes("@"));
 
   let formIsValid = false;
+  console.log(enteredNameIsValid);
+  console.log(enteredEmailIsValid);
   if (enteredNameIsValid && enteredEmailIsValid) {
     formIsValid = true;
   }
 
+  console.log(formIsValid);
   const formSubmissionHandler = (event) => {
     event.preventDefault();
+    // if (!formIsValid) {
+    //   return;
+    // }else{
+
+    // }
   };
   const nameInputClasses = nameInputHasError
     ? "form-control invalid"
