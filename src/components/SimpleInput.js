@@ -1,5 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { useInput } from "../utils/hooks/useInput";
 const SimpleInput = (props) => {
+  const { value, isValid, hasError, valueChangeHandler, inputBlurHandler } =
+    useInput();
   const [enteredName, setEnteredName] = useState("");
   const [enteredNameTouched, setEnteredNameTouched] = useState(false);
   const enteredNameIsValid = enteredName.trim() !== "";
