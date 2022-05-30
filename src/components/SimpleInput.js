@@ -24,9 +24,6 @@ const SimpleInput = (props) => {
 
   const formSubmissionHandler = (event) => {
     event.preventDefault();
-    if (!enteredNameIsValid) {
-      return;
-    }
   };
   const nameInputClasses = nameInputHasError
     ? "form-control invalid"
@@ -40,7 +37,7 @@ const SimpleInput = (props) => {
       <div className={nameInputClasses}>
         <label htmlFor="name">Your Name</label>
         <input
-          type="text" 
+          type="text"
           id="name"
           value={enteredName}
           onChange={nameChangeHandler}
